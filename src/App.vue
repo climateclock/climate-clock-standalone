@@ -74,6 +74,7 @@
   <div v-if="ready" id="newsfeed">
     <div class="news" one :style="animationDuration">{{ feedText }}</div>
     <div class="news" two :style="animationDuration">{{ feedText }}</div>
+    <div class="spacer">&nbsp;</div>
   </div>
   <div id="branding" @click="handleClick">
     <img src="./climateclock.svg" />
@@ -261,7 +262,7 @@ $side: 5vmax;
     height: 100%;
   }
   .value {
-    font-size: fluid(3rem, 12rem, 15vw);
+    font-size: fluid(3rem, 20rem, 15vw);
     margin: -3rem 0;
   }
   .label {
@@ -336,10 +337,12 @@ $side: 5vmax;
 }
 #newsfeed {
   position: relative;
-  min-height: 3rem;
+  .news,
+  .spacer {
+    font-size: fluid(1rem, 3rem, 10vw);
+  }
   .news {
     color: $lifeline;
-    font-size: fluid(1rem, 2rem, 10vw);
     text-transform: uppercase;
     white-space: nowrap;
     position: absolute;
@@ -376,26 +379,5 @@ $side: 5vmax;
   right: 0;
   bottom: 0;
   height: 10vh;
-  /*
-  display: flex;
-  flex: 0 0 10vh;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  img {
-    margin: 0 1vmax;
-    height: 60%;
-  }
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    h1,
-    h4 {
-      margin: 0;
-    }
-  }
-   */
 }
 </style>

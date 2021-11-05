@@ -35,7 +35,10 @@
           <div class="value">{{ renewableValue }}</div>
         </div>
         <div class="group">
+          <!--
           <div class="label">{{ renewables.unit_labels[0] }}</div>
+          -->
+          <div class="label">%</div>
         </div>
       </div>
     </div>
@@ -56,7 +59,7 @@
     <div class="module">
       <div class="header">
         <div class="tab">LIFELINE</div>
-        {{ gcf.labels[0] }}
+        {{ indie.labels[0] }}
       </div>
       <div class="groups">
         <div class="group">
@@ -276,7 +279,9 @@ $side: 5vmax;
     flex: 4 0 auto;
   }
   .value {
-    font-size: fluid(3rem, 10rem, 5vw);
+    // Looks good but not space-filling
+    //font-size: fluid(3rem, 10rem, 5vw);
+    font-size: fluid(3rem, 10rem, 7vw);
     align-items: flex-end;
   }
   .group {
@@ -310,12 +315,12 @@ $side: 5vmax;
     flex: 1 0 auto;
     display: flex;
     flex-wrap: wrap;
-    //height: 100%;
     .group {
       display: flex;
       align-items: center;
       justify-content: center;
-      max-height: $h / 2;
+      //max-height: $h / 2;
+      margin: -1.5vh 0;
     }
     .value {
       text-align: end;

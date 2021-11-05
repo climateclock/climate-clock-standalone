@@ -280,9 +280,10 @@ $side: 5vmax;
     align-items: flex-end;
   }
   .group {
+    padding-inline-start: 2%;
   }
   .label {
-    font-size: 2vmax;
+    font-size: 5vmax;
     align-items: flex-start;
   }
 }

@@ -25,6 +25,7 @@
     </div>
   </div>
   <div v-if="ready" id="lifelines">
+    <!--
     <div class="module">
       <div class="header">
         <div class="tab">LIFELINE</div>
@@ -35,10 +36,22 @@
           <div class="value">{{ renewableValue }}</div>
         </div>
         <div class="group">
-          <!--
-          <div class="label">{{ renewables.unit_labels[0] }}</div>
-          -->
           <div class="label">%</div>
+        </div>
+      </div>
+    </div>
+    -->
+    <div class="module">
+      <div class="header">
+        <div class="tab">LIFELINE</div>
+        {{ debt.labels[0] }}
+      </div>
+      <div class="groups">
+        <div class="group">
+          <div class="value">${{ debtValue }}</div>
+        </div>
+        <div class="group">
+          <div class="label">TRILLION</div>
         </div>
       </div>
     </div>
@@ -52,7 +65,7 @@
           <div class="value">${{ gcfValue }}</div>
         </div>
         <div class="group">
-          <div class="label">{{ gcf.unit_labels[0].replace("$", "") }}</div>
+          <div class="label">BILLION</div>
         </div>
       </div>
     </div>
@@ -99,6 +112,7 @@ export default {
     renewables: {},
     indie: {},
     gcf: {},
+    debt: {},
     open: window.open,
   }),
   computed: {
@@ -136,6 +150,10 @@ export default {
         (this.indie.initial + (tElapsed / 1000) * this.indie.rate) *
         1e6
       ).toLocaleString()
+    },
+    debtValue() {
+      let tElapsed = this.now - new Date(this.debt.timestamp).getTime()
+      return (this.debt.initial + (tElapsed / 1000) * this.debt.rate).toFixed(9)
     },
     mode() {
       let a = 7,
@@ -179,6 +197,7 @@ export default {
         this.gcf = modules.green_climate_fund_1
         this.indie = modules.indigenous_land_1
         this.newsfeed = modules.newsfeed_1
+        this.debt = modules.loss_damage_g20_debt
 
         this.deadline = DateTime.fromISO(this.carbon.timestamp)
         this.feed =
